@@ -531,9 +531,10 @@ bool TriangleMesh3::readObj(std::istream* strm) {
     tinyobj::attrib_t attrib;
     std::vector<tinyobj::shape_t> shapes;
     std::vector<tinyobj::material_t> materials;
+    std::string warn;
     std::string err;
 
-    const bool ret = tinyobj::LoadObj(&attrib, &shapes, &materials, &err, strm);
+    const bool ret = tinyobj::LoadObj(&attrib, &shapes, &materials, &warn, &err, strm);
 
     // `err` may contain warning message.
     if (!err.empty()) {
